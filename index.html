@@ -1252,15 +1252,14 @@ function updateCalc() {
   // --- BLOQUE 1: ENERGÍA ---
   let ingresoEnergiaMes = 0;
   let rowsE = "";
-  rowsE += makeRow("bruto","Venta bruta / mes", fmtCOP(ventaBruta), fmtNum(kwhMes)+" kWh vendidos");
-
   if (modelo === "aliado") {
     ingresoEnergiaMes = ventaBruta * 0.05;
-    rowsE += makeRow("menos","(−) Costo energía / mes", fmtCOP(costoEnergia), "Lumina asume el 100%");
+    rowsE += makeRow("bruto","kWh vendidos / mes", fmtNum(kwhMes)+" kWh", fmtNum(Math.round(kwhMes * 0.05 / kwhMes * kwhMes))+" kWh × tarifa");
     rowsE += makeRow("ingreso","Tu comisión 5% / mes", fmtCOP(ingresoEnergiaMes), "5% sobre venta bruta");
     rowsE += makeRow("anual","Tu ingreso energía / año", fmtCOP(ingresoEnergiaMes*12), "× 12 meses");
   } else {
     ingresoEnergiaMes = ventaBruta * 0.80 - costoEnergia;
+    rowsE += makeRow("bruto","Venta bruta / mes", fmtCOP(ventaBruta), fmtNum(kwhMes)+" kWh vendidos");
     rowsE += makeRow("menos","(−) Costo energía / mes", fmtCOP(costoEnergia), "A cargo del inversionista");
     rowsE += makeRow("ingreso","Tu EBITDA / mes", fmtCOP(ingresoEnergiaMes), "Neto mensual del inversionista");
     rowsE += makeRow("anual","Tu ingreso / año", fmtCOP(ingresoEnergiaMes*12), "× 12 meses");
