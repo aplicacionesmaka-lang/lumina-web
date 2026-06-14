@@ -1275,8 +1275,8 @@ function updateCalc() {
     const rowsCC =
       makeRow("azul","Vehículos cargados / mes", fmtNum(vehiculos)+" vehículos", kwhMes.toFixed(0)+" kWh ÷ 50 kWh/batería") +
       makeRow("azul","Personas que visitan / mes", fmtNum(personas)+" personas", vehiculos+" veh × 2 ocupantes") +
-      makeRow("ingreso","Gasto adicional en CC / mes", fmtCOP(ingresoCC), personas+" personas × $50.000") +
-      makeRow("anual","Gasto adicional CC / año", fmtCOP(ingresoCC*12), "× 12 meses");
+      makeRow("ingreso","Ingreso adicional en CC / mes", fmtCOP(ingresoCC), personas+" personas × $50.000") +
+      makeRow("anual","Ingreso adicional CC / año", fmtCOP(ingresoCC*12), "× 12 meses");
     document.getElementById("rowsCC").innerHTML = rowsCC;
   }
 
